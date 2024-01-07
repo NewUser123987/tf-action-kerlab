@@ -45,6 +45,7 @@ locals {
     }
   }
 }
+/*
 module "mynetwork" {
   source  = "app.terraform.io/krlab/network/aws"
   version = "1.0.0"
@@ -63,3 +64,4 @@ module "ec2" {
   map_ports = local.map_ports
   vpc_id = module.mynetwork.aws_vpc_id
 }
+*/
