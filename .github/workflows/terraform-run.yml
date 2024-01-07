@@ -1,0 +1,26 @@
+name: "tf-workflow"
+on:
+  workflow_dispatch:
+jobs:
+  tfrun:
+    runs-on: ubuntu-latest
+    name: "terraform run"
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v3
+        name: "Setup terraform cli"
+        with:
+          terraform_version: "1.6.6"
+      - name: "run init"
+        working-directory: mod1
+        run: |
+          terraform init
+      - name: "run plan"
+        working-directory: mod1
+        run: |
+          terraform plan
+      - name: "run apply"
+        working-directory: mod1
+        run: |
+          terraform apply --auto-approve -input=false
