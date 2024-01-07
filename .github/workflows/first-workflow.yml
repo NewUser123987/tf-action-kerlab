@@ -1,0 +1,13 @@
+name: "first workflow"
+on:
+  workflow_dispatch:
+jobs:
+  tfrun:
+    runs-on: ubuntu-latest
+    name: "terraform run"
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: "Hello"
+        run: |
+          echo "Hellow world"
